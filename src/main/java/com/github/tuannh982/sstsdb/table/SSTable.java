@@ -1,12 +1,10 @@
-package com.tuannh.sstsdb.table;
+package com.github.tuannh982.sstsdb.table;
 
-import com.tuannh.sstsdb.compact.Compactor;
+import com.github.tuannh982.sstsdb.compact.Compactor;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
-
-import static com.tuannh.sstsdb.compact.Compactor.OBJECT_MAPPER;
 
 @Getter
 public class SSTable implements Table {
@@ -33,7 +31,7 @@ public class SSTable implements Table {
                 while (true) {
                     entryStr = reader.readLine();
                     if (entryStr == null) break;
-                    entry = OBJECT_MAPPER.readValue(entryStr, DataEntry.class);
+                    entry = Compactor.OBJECT_MAPPER.readValue(entryStr, DataEntry.class);
                     if (StringUtils.equals(entry.getKey(), key)) {
                         return entry.getValue();
                     }

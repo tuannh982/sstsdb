@@ -1,5 +1,6 @@
-package com.tuannh.sstsdb.table;
+package com.github.tuannh982.sstsdb.table;
 
+import com.github.tuannh982.sstsdb.compact.Compactor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,8 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
-
-import static com.tuannh.sstsdb.compact.Compactor.OBJECT_MAPPER;
 
 @Getter
 public class MemTable implements Table {
@@ -47,7 +46,7 @@ public class MemTable implements Table {
         synchronized (lock) {
             try (BufferedWriter br = new BufferedWriter(new FileWriter(out))) {
                 for (Map.Entry<String, DataEntry> entry : map.entrySet()) {
-                    br.write(OBJECT_MAPPER.writeValueAsString(entry.getValue()));
+                    br.write(Compactor.OBJECT_MAPPER.writeValueAsString(entry.getValue()));
                     br.newLine();
                 }
             }

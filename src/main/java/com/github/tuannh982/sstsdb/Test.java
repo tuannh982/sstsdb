@@ -1,9 +1,9 @@
-package com.tuannh.sstsdb;
+package com.github.tuannh982.sstsdb;
 
-import com.tuannh.sstsdb.compact.Compactor;
-import com.tuannh.sstsdb.storage.DefaultStorage;
-import com.tuannh.sstsdb.table.Table;
-import com.tuannh.sstsdb.table.SSTable;
+import com.github.tuannh982.sstsdb.compact.Compactor;
+import com.github.tuannh982.sstsdb.storage.DefaultStorage;
+import com.github.tuannh982.sstsdb.table.SSTable;
+import com.github.tuannh982.sstsdb.table.Table;
 import org.quartz.*;
 
 import java.io.IOException;

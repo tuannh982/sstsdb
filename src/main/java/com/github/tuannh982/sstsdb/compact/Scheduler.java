@@ -1,4 +1,4 @@
-package com.tuannh.sstsdb.compact;
+package com.github.tuannh982.sstsdb.compact;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

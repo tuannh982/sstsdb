@@ -1,4 +1,4 @@
-package com.tuannh.sstsdb.table;
+package com.github.tuannh982.sstsdb.table;
 
 import lombok.*;
 

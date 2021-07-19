@@ -1,9 +1,9 @@
-package com.tuannh.sstsdb.compact;
+package com.github.tuannh982.sstsdb.compact;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tuannh.sstsdb.table.DataEntry;
-import com.tuannh.sstsdb.table.MemTable;
-import com.tuannh.sstsdb.table.SSTable;
+import com.github.tuannh982.sstsdb.table.DataEntry;
+import com.github.tuannh982.sstsdb.table.MemTable;
+import com.github.tuannh982.sstsdb.table.SSTable;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
@@ -206,13 +206,13 @@ public class Compactor implements Closeable {
         dataMap.put("compactor", this);
         JobDataMap jobDataMap = new JobDataMap(dataMap);
         //
-        Trigger trigger0 = Scheduler.FIVE_MIN_TRIGGER.withIdentity("trigger0").usingJobData(jobDataMap).build();
+        Trigger trigger0 = com.github.tuannh982.sstsdb.compact.Scheduler.FIVE_MIN_TRIGGER.withIdentity("trigger0").usingJobData(jobDataMap).build();
         JobDetail job0 = JobBuilder.newJob(JobMemTblCompact.class).build();
-        Trigger trigger1 = Scheduler.THIRTY_MIN_TRIGGER.withIdentity("trigger1").usingJobData(jobDataMap).build();
+        Trigger trigger1 = com.github.tuannh982.sstsdb.compact.Scheduler.THIRTY_MIN_TRIGGER.withIdentity("trigger1").usingJobData(jobDataMap).build();
         JobDetail job1 = JobBuilder.newJob(JobHourly2ThreeHourCompact.class).build();
-        Trigger trigger2 = Scheduler.HOURLY_TRIGGER.withIdentity("trigger2").usingJobData(jobDataMap).build();
+        Trigger trigger2 = com.github.tuannh982.sstsdb.compact.Scheduler.HOURLY_TRIGGER.withIdentity("trigger2").usingJobData(jobDataMap).build();
         JobDetail job2 = JobBuilder.newJob(JobThreeHourCompact2TwelveHourCompact.class).build();
-        Trigger trigger3 = Scheduler.THREE_HOUR_TRIGGER.withIdentity("trigger3").usingJobData(jobDataMap).build();
+        Trigger trigger3 = com.github.tuannh982.sstsdb.compact.Scheduler.THREE_HOUR_TRIGGER.withIdentity("trigger3").usingJobData(jobDataMap).build();
         JobDetail job3 = JobBuilder.newJob(JobTwelveHour2DailyCompact.class).build();
         scheduler.scheduleJob(job0, trigger0);
         scheduler.scheduleJob(job1, trigger1);

@@ -1,11 +1,10 @@
-package com.tuannh.sstsdb.storage;
+package com.github.tuannh982.sstsdb.storage;
 
-import com.tuannh.sstsdb.compact.Scheduler;
-import com.tuannh.sstsdb.compact.Compactor;
-import com.tuannh.sstsdb.table.MemTable;
-import com.tuannh.sstsdb.table.Table;
+import com.github.tuannh982.sstsdb.compact.Scheduler;
+import com.github.tuannh982.sstsdb.compact.Compactor;
+import com.github.tuannh982.sstsdb.table.MemTable;
+import com.github.tuannh982.sstsdb.table.Table;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import org.quartz.*;
